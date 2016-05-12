@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<title>Une todo façon {{title}} !</title>
+</head>
+<body>
+
+
+
+	<div class="container">
+	
+		<h2>Welcome slacker !</h2>
+
+		<hr />
+
+		{% if todo.length > 0 %}
+			<p>Voici la liste des choses à faire :</p>
+			<br />
+
+			<form>
+				
+				<ul>
+					{% for task in todo %}
+					<li>
+						<a href="/todo/delete/{{task}}" title="Beware, love hurts. Surtout {{task}}.">&#9829;</a>
+						{{task}}
+					</li>
+					{% endfor %}
+				</ul>
+
+			</form>
+
+			<br />
+			<hr />
+		{% endif %}
+
+		<form action="/todo/add/" method="post">
+			<p>Ajouter une tâche à la todo list :</p>
+			<input type="text" id="taskInput" name="taskName" placeholder="Nom de la nouvelle tache">
+			<input type="submit" value="Ajouter la nouvelle tâche">
+		</form>
+
+	</div>
+
+	<footer>
+		Retourner à <a href="/">la page d'accueil</a>.
+	</footer>
+
+
+	<script type="text/javascript" src="/js/todo.js"></script>
+</body>
+</html>

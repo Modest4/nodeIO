@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Test de page</title>
+</head>
+<body>
+
+<div>
+	Ceci est un boutton, essayez donc de cliquer dessus :
+	<button id="button">Cliquez je vous dis</button>
+</div>
+
+<div>
+	Vous avez cliqué <span id="nmbClick">0</span> fois sur le bouton !
+</div>
+
+
+<div id="init">Et hop, un boutton pour <button>réinitialiser.</button></div>
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+
+
+
+	(function(){
+
+		var myClass = function() {
+			this.publicVar = 0;
+		}
+
+		var numberClicked = 0;
+
+		myClass.prototype = {
+			decrement:function() {
+		        console.log( --this.publicVar );
+		        -- numberClicked;
+		        this.apply();
+		    },
+			increment : function() {
+				console.log( ++this.publicVar );
+				++ numberClicked;
+				this.apply();
+			},
+			init : function() {
+				numberClicked = 0;
+				this.apply();
+			},
+			apply : function() {
+				clickCounter.innerHTML = numberClicked;
+			}
+		};
+
+		myObject = new myClass();
+		console.log(myObject);
+
+
+
+		var clickCounter = document.getElementById("nmbClick");
+
+
+		var button = document.getElementById("button");
+		button.onclick = function() {
+			myObject.increment();
+		};
+
+		var init = document.getElementById("init");
+		init.onclick = function() {
+			myObject.init();
+		}
+
+
+	})();
+
+</script>

@@ -1,0 +1,22 @@
+{
+  "name": "modapp",
+  "version": "1.0.0",
+  "description": "mod applications",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-session": "^1.2.0",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0",
+    "socket.io": "^1.4.6",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "modesta",
+  "license": "ISC"
+}
